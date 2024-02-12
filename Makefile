@@ -15,7 +15,7 @@ include env.mk
 # project structure
 SRC_DIR = src
 INCLUDE_DIR = include
-DEV_INCLUDE = devinclude
+DEV_INCLUDE_DIR = dev_include
 OBJ_DIR = obj
 RUN_DIR = run
 MOUNT_FOLDER = mount
@@ -23,10 +23,10 @@ WORKSPACE_NAME = $(shell basename ${PWD})
 
 # C++ configurations
 CC = g++
-CFLAGS = -g $(ADDINC) -I$(INCLUDE_DIR) -I$(SRC_DIR) $(CARG) #-std=c++17
+CFLAGS = -g $(ADDINC) -I$(INCLUDE_DIR) -I$(DEV_INCLUDE_DIR) -I$(SRC_DIR) $(CARG)
 LIBS = -lpthread -lkipr $(LARG)
 
-# files and compliation results
+# files and compilation results
 SRC_SOURCES = $(shell find $(SRC_DIR) -name '*.cpp')
 SRC_OBJECTS_TEMP = $(patsubst %.cpp,%.o,$(SRC_SOURCES))
 SRC_OBJECTS = $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/src/%,$(SRC_OBJECTS_TEMP))
@@ -116,7 +116,7 @@ start:
 	make remote_start
 
 hstart: 
-	make local_compile $(LCORES) ADDINC=-I$(DEV_INCLUDE)
+	make local_compile $(LCORES) ADDINC=-I$(DEV_INCLUDE_DIR)
 	make copy_objects
 	make remote_hlink
 	make remote_start
@@ -128,7 +128,7 @@ build:
 
 # localy builds objects, then copies them to the target and links them there
 hbuild:
-	make local_compile $(LCORES) ADDINC=-I$(DEV_INCLUDE)
+	make local_compile $(LCORES) ADDINC=-I$(DEV_INCLUDE_DIR)
 	make copy_objects
 	make remote_hlink
 

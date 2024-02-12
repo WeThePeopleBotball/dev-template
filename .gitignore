@@ -32,6 +32,6 @@
 *.app
 
 # environment configuration
-env.mk
 mount
 .vscode/
+.cache/

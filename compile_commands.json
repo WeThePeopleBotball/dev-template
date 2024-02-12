@@ -1,0 +1,18 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-Iinclude",
+      "-Idev_include",
+      "-Isrc",
+      "-c",
+      "-o",
+      "obj/src/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/mnt/data/_Dev/Botball-2024/dev-template",
+    "file": "/mnt/data/_Dev/Botball-2024/dev-template/src/main.cpp",
+    "output": "/mnt/data/_Dev/Botball-2024/dev-template/obj/src/main.o"
+  }
+]
