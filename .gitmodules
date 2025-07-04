@@ -1,0 +1,3 @@
+[submodule "wtp-lib"]
+	path = wtp-lib
+	url = git@github.com:WeThePeopleBotball/wtp-lib.git
